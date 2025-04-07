@@ -31,7 +31,18 @@ var express = require('express');
      } catch (error) {
          res.send(error)
      }
- })        
+ })     
+ app.put('/:id',async(req,res)=>{
+    try {
+        console.log(req.params.id)
+        await sModel1.findByIdAndUpdate(req.params.id,req.body);
+        res.send("data edited")
+      
+    } catch (error) {
+        res.send(error)
+    }
+}
+)   
  
 
  app.listen(port,()=>{
